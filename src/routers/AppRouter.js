@@ -8,10 +8,12 @@ import ProjectPage from '../pages/ProjectPage'
 import RegisterPage from '../pages/RegisterPage'
 import UsersPage from '../pages/admin/UsersPage'
 import NotFoundPage from '../pages/NotFoundPage'
+import Layout from '../components/layouts/Layout'
 
 export default function AppRouter() {
   return (
     <Router>
+      <Layout>
         <Routes>
             <Route path='/' element={<HomePage/>} exact/>
             <Route path='/login' element={<LoginPage/>}/>
@@ -23,6 +25,7 @@ export default function AppRouter() {
 
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
+        </Layout>
     </Router>
   )
 }
