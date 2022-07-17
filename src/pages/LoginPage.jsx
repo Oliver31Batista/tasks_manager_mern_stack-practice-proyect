@@ -1,7 +1,14 @@
-import React from 'react'
+import useAuth from "../auth/useAuth"
+
+const userCredentials = {};
 
 export default function LoginPage() {
+
+  const { login } = useAuth();
+
   return (
-    <div>LoginPage</div>
+    <div>
+      <button onClick={() => login(userCredentials)}>Iniciar Sesión</button>
+    </div>
   )
 }
