@@ -11,19 +11,21 @@ import NotFoundPage from '../pages/NotFoundPage'
 import Layout from '../components/layouts/Layout'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import roles from '../helpers/roles'
+import routes from '../helpers/routes'
 
 export default function AppRouter() {
   return (
     <Router>
       <Layout>
         <Routes>
-            <Route path='/' element={<HomePage/>} exact/>
-            <Route path='/login' element={<PublicRoute><LoginPage/></PublicRoute>}/>
-            <Route path='/register' element={<PublicRoute><RegisterPage/></PublicRoute>}/>
-            <Route path='/account' element={<PrivateRoute><AccountPage/></PrivateRoute>}/>
-            <Route path='/projects' element={<PrivateRoute><ProjectsPage/></PrivateRoute>}/>
-            <Route path='/project/:projectId' element={<PrivateRoute><ProjectPage/></PrivateRoute>}/>
-            <Route path='/admin/users' element={<PrivateRoute role='admin'><UsersPage/></PrivateRoute>}/>
+            <Route path={routes.home} element={<HomePage/>} exact/>
+            <Route path={routes.login} element={<PublicRoute><LoginPage/></PublicRoute>}/>
+            <Route path={routes.register} element={<PublicRoute><RegisterPage/></PublicRoute>}/>
+            <Route path={routes.account} element={<PrivateRoute><AccountPage/></PrivateRoute>}/>
+            <Route path={routes.projects} element={<PrivateRoute><ProjectsPage/></PrivateRoute>}/>
+            <Route path={routes.project()} element={<PrivateRoute><ProjectPage/></PrivateRoute>}/>
+            <Route path={routes.admin.users} element={<PrivateRoute role={roles.admin}><UsersPage/></PrivateRoute>}/>
 
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
