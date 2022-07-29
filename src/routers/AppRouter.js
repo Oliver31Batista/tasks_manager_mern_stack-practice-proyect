@@ -16,9 +16,9 @@ import routes from '../helpers/routes'
 
 export default function AppRouter() {
   return (
-    <Router>
+    // <Router>
       <Layout>
-        <Routes>
+        <Router>
             <Route path={routes.home} element={<HomePage/>} exact/>
             <Route path={routes.login} element={<PublicRoute><LoginPage/></PublicRoute>}/>
             <Route path={routes.register} element={<PublicRoute><RegisterPage/></PublicRoute>}/>
@@ -28,8 +28,8 @@ export default function AppRouter() {
             <Route path={routes.admin.users} element={<PrivateRoute role={roles.admin}><UsersPage/></PrivateRoute>}/>
 
             <Route path='*' element={<NotFoundPage/>}/>
-        </Routes>
+        </Router>
         </Layout>
-    </Router>
+    // </Router>
   )
 }

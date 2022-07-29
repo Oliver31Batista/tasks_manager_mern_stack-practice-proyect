@@ -5,13 +5,12 @@ const userCredentials = {};
 
 export default function LoginPage() {
   const location = useLocation();
-  console.log(location)
 
   const { login } = useAuth();
 
   return (
     <div>
-      <button onClick={() => login(userCredentials)}>Iniciar Sesión</button>
+      <button onClick={() => login(userCredentials, location.state?.pathname)}>Iniciar Sesión</button>
     </div>
   )
 }
