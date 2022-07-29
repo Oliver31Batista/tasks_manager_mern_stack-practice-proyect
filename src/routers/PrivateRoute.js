@@ -12,7 +12,7 @@ export default function PrivateRoute({role, children}) {
     if(role && !hasRole(role)) return navigate(routes.home) 
     // if(!isLogged()) return <Navigate to ={{pathname: routes.login, state: location.state }} />
     if(!isLogged()) return navigate(routes.login, {state: location}) 
-
+ 
 
     return children;
 }
